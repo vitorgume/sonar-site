@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="420" height="132" viewBox="0 0 420 132" fill="none" role="img" aria-label="Sonar — Sales Call Intelligence">
+  <g>
+    <circle cx="66" cy="66" r="9" fill="#2DD4BF"></circle>
+    <circle cx="66" cy="66" r="24" stroke="#2DD4BF" stroke-width="7" stroke-linecap="round" stroke-dasharray="94 200" transform="rotate(-45 66 66)"></circle>
+    <circle cx="66" cy="66" r="40" stroke="#2DD4BF" stroke-width="7" stroke-linecap="round" stroke-dasharray="157 300" transform="rotate(-45 66 66)" opacity=".6"></circle>
+    <circle cx="66" cy="66" r="56" stroke="#2DD4BF" stroke-width="7" stroke-linecap="round" stroke-dasharray="220 400" transform="rotate(-45 66 66)" opacity=".28"></circle>
+  </g>
+  <text x="152" y="64" font-family="&#39;Helvetica Neue&#39;, Helvetica, Arial, sans-serif" font-size="52" font-weight="700" letter-spacing="-1.5" fill="#F8FAFC">Sonar</text>
+  <text x="154" y="89" font-family="&#39;Helvetica Neue&#39;, Helvetica, Arial, sans-serif" font-size="14" font-weight="600" letter-spacing="2.6" fill="#94A3B8">SALES CALL INTELLIGENCE</text>
+</svg>

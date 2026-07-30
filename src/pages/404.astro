@@ -1,0 +1,36 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Header from '../components/sections/Header.astro';
+import Footer from '../components/sections/Footer.astro';
+import Container from '../components/ui/Container.astro';
+import Button from '../components/ui/Button.astro';
+---
+
+<BaseLayout
+  title="Página não encontrada — Sonar"
+  description="A página que você procura não existe ou foi movida."
+  noindex
+>
+  <Header />
+  <main id="conteudo" class="bg-white">
+    <Container class="py-24 md:py-32">
+      <div class="mx-auto max-w-xl text-center">
+        <p class="text-sm font-semibold uppercase tracking-wide text-teal-600">
+          Erro 404
+        </p>
+        <h1
+          class="mt-3 text-4xl font-semibold tracking-tight text-slate-900 md:text-5xl"
+        >
+          Não encontramos essa página
+        </h1>
+        <p class="mt-4 text-base font-medium text-slate-500 md:text-lg">
+          O link pode estar quebrado ou a página pode ter sido movida.
+        </p>
+        <div class="mt-8 flex flex-col justify-center gap-3 sm:flex-row">
+          <Button href="/" size="lg">Voltar para a página inicial</Button>
+        </div>
+      </div>
+    </Container>
+  </main>
+  <Footer />
+</BaseLayout>

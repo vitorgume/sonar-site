@@ -1,0 +1,32 @@
+---
+import { ArrowRight } from 'lucide-astro';
+import Container from '../ui/Container.astro';
+import Button from '../ui/Button.astro';
+import { APP_URLS } from '../../data/site';
+---
+
+<section class="bg-slate-900 py-16 md:py-24">
+  <Container>
+    <div class="mx-auto max-w-3xl text-center">
+      <h2
+        class="text-3xl font-semibold tracking-tight text-white md:text-4xl"
+      >
+        A próxima ligação do seu time pode ser a primeira com
+        <span class="text-teal-400">evidência</span>
+      </h2>
+      <p class="mt-4 text-base font-medium text-slate-300 md:text-lg">
+        Crie sua conta, envie uma ligação e veja a análise completa em minutos.
+        Sem instalação e sem mudar a rotina do time comercial.
+      </p>
+      <div class="mt-8 flex flex-col justify-center gap-3 sm:flex-row">
+        <Button href={APP_URLS.register} size="lg">
+          Criar conta grátis
+          <ArrowRight class="h-4 w-4" aria-hidden="true" />
+        </Button>
+        <Button href={APP_URLS.login} variant="dark" size="lg">
+          Entrar na plataforma
+        </Button>
+      </div>
+    </div>
+  </Container>
+</section>

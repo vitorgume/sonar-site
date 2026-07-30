@@ -1,0 +1,51 @@
+---
+import { ChevronDown } from 'lucide-astro';
+import Container from '../ui/Container.astro';
+import SectionTitle from '../ui/SectionTitle.astro';
+import { FAQ } from '../../data/faq';
+
+const faqJsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: FAQ.map((item) => ({
+    '@type': 'Question',
+    name: item.question,
+    acceptedAnswer: { '@type': 'Answer', text: item.answer },
+  })),
+};
+---
+
+<script
+  type="application/ld+json"
+  set:html={JSON.stringify(faqJsonLd)}
+  is:inline
+/>
+
+<section id="faq" class="scroll-mt-20 bg-white py-16 md:py-24">
+  <Container>
+    <SectionTitle
+      eyebrow="Dúvidas"
+      title="Perguntas frequentes"
+      description="Se ficar alguma dúvida, é só falar com a gente antes de criar a conta."
+    />
+
+    <div class="mx-auto mt-12 max-w-3xl space-y-3">
+      {
+        FAQ.map((item) => (
+          <details class="group rounded-xl border border-slate-200 bg-white shadow-sm">
+            <summary class="flex cursor-pointer list-none items-center justify-between gap-4 rounded-xl p-6 text-base font-semibold text-slate-900 transition-colors hover:bg-slate-50 [&::-webkit-details-marker]:hidden">
+              {item.question}
+              <ChevronDown
+                class="h-5 w-5 shrink-0 text-slate-400 transition-transform duration-200 group-open:rotate-180"
+                aria-hidden="true"
+              />
+            </summary>
+            <p class="px-6 pb-6 text-sm font-medium leading-relaxed text-slate-500">
+              {item.answer}
+            </p>
+          </details>
+        ))
+      }
+    </div>
+  </Container>
+</section>

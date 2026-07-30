@@ -1,0 +1,69 @@
+---
+import { ArrowRight, Sparkles, Check } from 'lucide-astro';
+import Container from '../ui/Container.astro';
+import Button from '../ui/Button.astro';
+import Badge from '../ui/Badge.astro';
+import CallAnalysisPreview from './CallAnalysisPreview.astro';
+import { APP_URLS } from '../../data/site';
+
+const highlights = [
+  'Sem instalar nada',
+  'Análise em português',
+  'Pronto em minutos',
+];
+---
+
+<section class="relative overflow-hidden bg-white">
+  <div
+    class="pointer-events-none absolute inset-x-0 top-0 h-[420px] bg-gradient-to-b from-teal-50 to-white"
+    aria-hidden="true"
+  >
+  </div>
+
+  <Container class="relative py-16 md:py-24">
+    <div class="grid items-center gap-12 lg:grid-cols-2 lg:gap-16">
+      <div>
+        <Badge>
+          <Sparkles class="h-3.5 w-3.5" aria-hidden="true" />
+          Inteligência artificial aplicada a vendas
+        </Badge>
+
+        <h1
+          class="mt-6 text-4xl font-semibold tracking-tight text-slate-900 md:text-6xl"
+        >
+          Cada ligação do seu time vira
+          <span class="text-teal-600">decisão de venda</span>
+        </h1>
+
+        <p class="mt-6 text-base font-medium text-slate-500 md:text-lg">
+          O Sonar transcreve, resume e pontua as ligações comerciais da sua
+          equipe. Você descobre as objeções que travam o funil, faz coaching com
+          evidência e para de gerenciar vendas no achismo.
+        </p>
+
+        <div class="mt-8 flex flex-col gap-3 sm:flex-row">
+          <Button href={APP_URLS.register} size="lg">
+            Criar conta grátis
+            <ArrowRight class="h-4 w-4" aria-hidden="true" />
+          </Button>
+          <Button href={APP_URLS.login} variant="secondary" size="lg">
+            Já tenho conta
+          </Button>
+        </div>
+
+        <ul class="mt-8 flex flex-wrap gap-x-6 gap-y-2">
+          {
+            highlights.map((item) => (
+              <li class="flex items-center gap-2 text-sm font-medium text-slate-600">
+                <Check class="h-4 w-4 text-teal-600" aria-hidden="true" />
+                {item}
+              </li>
+            ))
+          }
+        </ul>
+      </div>
+
+      <CallAnalysisPreview />
+    </div>
+  </Container>
+</section>

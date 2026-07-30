@@ -1,0 +1,96 @@
+---
+import Container from '../ui/Container.astro';
+import {
+  APP_URLS,
+  COMPANY,
+  CONTACT_EMAIL,
+  NAV_LINKS,
+  SITE,
+} from '../../data/site';
+
+const year = new Date().getFullYear();
+const productLinks = NAV_LINKS.filter((link) => link.href !== '#faq');
+---
+
+<footer class="bg-slate-900">
+  <Container class="py-16">
+    <div class="grid gap-10 md:grid-cols-2 lg:grid-cols-4">
+      <div class="lg:col-span-2">
+        <img
+          src="/logos/sonar-lockup-dark.svg"
+          alt="Sonar"
+          width="420"
+          height="132"
+          class="h-7 w-auto"
+        />
+        <p class="mt-4 max-w-sm text-sm font-medium leading-relaxed text-slate-300">
+          Inteligência artificial aplicada às ligações do seu time comercial:
+          transcrição, análise e coaching em um só lugar.
+        </p>
+      </div>
+
+      <div>
+        <h2 class="text-sm font-semibold text-white">Produto</h2>
+        <ul class="mt-4 space-y-3">
+          {
+            productLinks.map((link) => (
+              <li>
+                <a
+                  href={link.href}
+                  class="rounded text-sm font-medium text-slate-300 transition-colors hover:text-teal-400"
+                >
+                  {link.label}
+                </a>
+              </li>
+            ))
+          }
+          <li>
+            <a
+              href="#faq"
+              class="rounded text-sm font-medium text-slate-300 transition-colors hover:text-teal-400"
+            >
+              Perguntas frequentes
+            </a>
+          </li>
+        </ul>
+      </div>
+
+      <div>
+        <h2 class="text-sm font-semibold text-white">Conta</h2>
+        <ul class="mt-4 space-y-3">
+          <li>
+            <a
+              href={APP_URLS.login}
+              class="rounded text-sm font-medium text-slate-300 transition-colors hover:text-teal-400"
+            >
+              Entrar
+            </a>
+          </li>
+          <li>
+            <a
+              href={APP_URLS.register}
+              class="rounded text-sm font-medium text-slate-300 transition-colors hover:text-teal-400"
+            >
+              Criar conta
+            </a>
+          </li>
+          <li>
+            <a
+              href={`mailto:${CONTACT_EMAIL}`}
+              class="rounded text-sm font-medium text-slate-300 transition-colors hover:text-teal-400"
+            >
+              {CONTACT_EMAIL}
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <div
+      class="mt-12 flex flex-col gap-2 border-t border-slate-800 pt-8 text-sm font-medium text-slate-400 sm:flex-row sm:items-center sm:justify-between"
+    >
+      <p>© {year} {SITE.name} · {COMPANY}. Todos os direitos reservados.</p>
+      <p>Feito no Brasil 🇧🇷</p>
+    </div>
+  </Container>
+</footer>

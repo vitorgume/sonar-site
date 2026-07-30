@@ -1,0 +1,47 @@
+---
+import { Check } from 'lucide-astro';
+import Container from '../ui/Container.astro';
+import SectionTitle from '../ui/SectionTitle.astro';
+import { AUDIENCES } from '../../data/audiences';
+---
+
+<section id="para-quem" class="scroll-mt-20 bg-white py-16 md:py-24">
+  <Container>
+    <SectionTitle
+      eyebrow="Para quem"
+      title="Um ganho para o gestor, um alívio para o vendedor"
+      description="O Sonar resolve os dois lados da mesa comercial ao mesmo tempo."
+    />
+
+    <div class="mt-12 grid gap-6 lg:grid-cols-2">
+      {
+        AUDIENCES.map((audience) => (
+          <div class="rounded-xl border border-slate-200 bg-white p-6 shadow-sm">
+            <p class="text-sm font-semibold uppercase tracking-wide text-teal-600">
+              {audience.eyebrow}
+            </p>
+            <h3 class="mt-3 text-2xl font-semibold tracking-tight text-slate-900">
+              {audience.title}
+            </h3>
+            <p class="mt-3 text-base font-medium leading-relaxed text-slate-500">
+              {audience.description}
+            </p>
+            <ul class="mt-6 space-y-3">
+              {audience.benefits.map((benefit) => (
+                <li class="flex items-start gap-3 text-sm font-medium text-slate-700">
+                  <span class="mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-emerald-50">
+                    <Check
+                      class="h-3.5 w-3.5 text-emerald-700"
+                      aria-hidden="true"
+                    />
+                  </span>
+                  {benefit}
+                </li>
+              ))}
+            </ul>
+          </div>
+        ))
+      }
+    </div>
+  </Container>
+</section>
