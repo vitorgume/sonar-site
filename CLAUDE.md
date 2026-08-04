@@ -121,7 +121,7 @@ Rules:
 - Prefer SVG. Never rasterize or re-draw the logo in code.
 - Never change logo colors, proportions, or apply effects/shadows.
 - Minimum clear space around the logo = the height of the symbol.
-- Header logo height: `h-8`; footer: `h-7`.
+- Header logo height: `h-10`; footer: `h-9`.
 - Every logo needs `alt="Sonar"` (or `alt=""` when purely decorative next to the wordmark).
 
 > Source files live in `/logos` at the repo root and are copied to `public/logos/` (the served path). When adding or renaming a brand file, update both folders and this table.

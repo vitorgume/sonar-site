@@ -57,3 +57,17 @@ no topo, em vez de espalhados pelos componentes.
 **Regra:** nunca inventar número, preço, depoimento de cliente, logo de empresa ou métrica de
 resultado direto no template. Se o dado não foi confirmado, ele vai para `src/data/` com aviso
 explícito.
+
+---
+
+## 2026-08-04 — Logo do header/footer pequena demais
+
+**Erro:** os tamanhos definidos originalmente no `CLAUDE.md` (`h-8` no header, `h-7` no footer)
+deixaram o lockup da Sonar visualmente pequeno demais nas duas áreas.
+
+**Solução adotada:** aumentado para `h-10` no header (`Header.astro`) e `h-9` no footer
+(`Footer.astro`), com a tabela de geometria do `CLAUDE.md` atualizada para os novos valores.
+
+**Regra:** ao definir altura de logo em `h-*`, validar visualmente contra a altura do container
+(`h-16` no header) antes de fixar o valor na especificação — não assumir que o primeiro valor
+escolhido está correto.
