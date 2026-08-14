@@ -7,12 +7,12 @@ import { PLANS } from '../../data/plans';
 import { APP_URLS } from '../../data/site';
 ---
 
-<section id="planos" class="scroll-mt-20 bg-slate-50 py-16 md:py-24">
+<section id="planos" class="scroll-mt-24 bg-slate-50 py-16 md:py-24">
   <Container>
     <SectionTitle
       eyebrow="Planos"
       title="Comece pequeno, escale quando o time crescer"
-      description="Sem contrato de fidelidade e sem custo de implantação. Você cria a conta e já usa."
+      description="Sem contrato de fidelidade e sem custo de implantação. Você cria a conta e já começa a treinar com dado."
     />
 
     <div class="mt-12 grid items-start gap-6 lg:grid-cols-3">
@@ -60,7 +60,7 @@ import { APP_URLS } from '../../data/site';
             </ul>
 
             <Button
-              href={APP_URLS.register}
+              href={plan.name === 'Enterprise' ? APP_URLS.comercial : APP_URLS.register}
               variant={plan.highlighted ? 'primary' : 'secondary'}
               class="mt-8 w-full"
             >
@@ -72,7 +72,8 @@ import { APP_URLS } from '../../data/site';
     </div>
 
     <p class="mt-8 text-center text-sm font-medium text-slate-500">
-      Todos os planos incluem transcrição, resumo por IA e score de qualidade.
+      Todos os planos incluem transcrição, leitura por IA e score por critério
+      do playbook.
     </p>
   </Container>
 </section>

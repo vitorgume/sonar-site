@@ -3,21 +3,22 @@ export const SITE = {
   tagline: 'Sales Call Intelligence',
   url: 'https://sonar.gume.app',
   locale: 'pt-BR',
-  title: 'Sonar — Inteligência de IA para suas ligações de vendas',
+  title: 'Sonar — Sales Enablement: treine seu time comercial com dados',
   description:
-    'O Sonar transcreve, analisa e pontua cada ligação do seu time comercial. Descubra objeções, acompanhe a qualidade das conversas e transforme cada call em coaching acionável.',
+    'O Sonar é a plataforma de Sales Enablement que transforma as ligações do seu time em treinamento contínuo. Dados de cada conversa, score por critério do playbook e coaching com evidência — não com achismo.',
   ogImage: '/og-image.png',
 } as const;
 
 /** ⚠️ CONFIRMAR: e-mail de contato comercial exibido no rodapé. */
-export const CONTACT_EMAIL = 'contato@gumeinteligencia.com.br';
+export const CONTACT_EMAIL = 'vitorvieira@gumeinteligencia.com.br';
 
 export const COMPANY = 'Gume Inteligência';
 
 export const APP_URLS = {
   login: 'https://sonar.gume.app/login',
   register: 'https://sonar.gume.app/register',
-} as const;
+  comercial: 'https://wa.me/5544991214486',
+ } as const;
 
 export const NAV_LINKS = [
   { label: 'Recursos', href: '#recursos' },

@@ -1,26 +1,26 @@
 ---
-import { EarOff, ClipboardX, Repeat } from 'lucide-astro';
+import { EarOff, BookX, Hourglass } from 'lucide-astro';
 import Container from '../ui/Container.astro';
 import SectionTitle from '../ui/SectionTitle.astro';
 
 const problems = [
   {
     icon: EarOff,
-    title: 'Ninguém ouve as ligações',
+    title: 'O treinamento é feito por opinião',
     description:
-      'Escutar call por call é inviável na prática. Sem isso, o gestor decide com base no que o vendedor conta — e não no que realmente aconteceu.',
+      'Sem ouvir as ligações, o feedback vira percepção. O vendedor recebe conselho genérico em vez de saber exatamente qual trecho da conversa precisa mudar.',
   },
   {
-    icon: ClipboardX,
-    title: 'O CRM chega pela metade',
+    icon: BookX,
+    title: 'O playbook não chega na ligação',
     description:
-      'Anotação feita às pressas entre uma ligação e outra perde o contexto. O follow-up seguinte começa do zero e o cliente sente.',
+      'O material de treinamento existe, mas ninguém mede se ele está sendo aplicado. Não há dado que mostre a distância entre o que foi treinado e o que é falado.',
   },
   {
-    icon: Repeat,
-    title: 'A mesma objeção derruba o funil',
+    icon: Hourglass,
+    title: 'A rampagem demora demais',
     description:
-      'Quando a objeção não é registrada, ela se repete em silêncio. O time inteiro perde negócios pelo mesmo motivo, mês após mês.',
+      'Cada vendedor novo aprende sozinho, repetindo os mesmos erros. Sem uma base de calls reais, o onboarding depende da agenda de quem já está ocupado vendendo.',
   },
 ];
 ---
@@ -29,8 +29,8 @@ const problems = [
   <Container>
     <SectionTitle
       eyebrow="O problema"
-      title="Sua operação comercial perde informação todo dia"
-      description="A conversa mais importante do processo de vendas é justamente a que não fica registrada em lugar nenhum."
+      title="Seu time é treinado sem nenhum dado da ligação"
+      description="A conversa que decide a venda é justamente a que nunca vira material de treinamento — porque ninguém consegue medir o que aconteceu nela."
     />
 
     <div class="mt-12 grid gap-6 md:grid-cols-3">

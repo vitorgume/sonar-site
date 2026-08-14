@@ -9,18 +9,18 @@ export const STEPS: Step[] = [
     number: '01',
     title: 'Envie a ligação',
     description:
-      'Suba o áudio da call direto no Sonar. Sem instalar nada na máquina do vendedor e sem mudar a rotina do time comercial.',
+      'Suba o áudio da call direto no Sonar. Sem instalar nada na máquina do vendedor e sem tirar ninguém do ritmo de vendas.',
   },
   {
     number: '02',
-    title: 'A IA transcreve e analisa',
+    title: 'A IA transforma em dado',
     description:
-      'O Sonar gera a transcrição completa, o resumo da conversa, as objeções levantadas e o score de qualidade da ligação.',
+      'O Sonar gera a transcrição completa, as objeções levantadas e o score da ligação nos critérios do seu playbook comercial.',
   },
   {
     number: '03',
-    title: 'Você age com evidência',
+    title: 'Você treina com evidência',
     description:
-      'Use os insights para fazer coaching, priorizar follow-ups e corrigir o discurso do time enquanto o negócio ainda está aberto.',
+      'Leve o dado para o 1:1, corrija o discurso com o trecho na mão e acompanhe a evolução do vendedor ligação após ligação.',
   },
 ];

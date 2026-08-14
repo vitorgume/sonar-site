@@ -15,38 +15,38 @@ export interface Feature {
 export const FEATURES: Feature[] = [
   {
     icon: 'audio-lines',
-    title: 'Transcrição automática',
+    title: 'Biblioteca de calls reais',
     description:
-      'Cada ligação vira texto pesquisável, com identificação de quem falou e marcação de tempo. Nunca mais dependa da memória do vendedor sobre o que foi combinado.',
+      'Cada ligação vira texto pesquisável, com identificação de quem falou e marcação de tempo. É a sua base de treinamento com conversas de verdade, não com role-play.',
   },
   {
     icon: 'sparkles',
-    title: 'Resumo gerado por IA',
+    title: 'Leitura da conversa por IA',
     description:
-      'Em segundos você tem o resumo da conversa, a dor do cliente, o que ficou pendente e os próximos passos — pronto para colar no CRM.',
+      'Em segundos você tem a dor do cliente, o que foi combinado e o que ficou pendente — dado estruturado para revisar a call sem precisar ouvir os 40 minutos.',
   },
   {
     icon: 'gauge',
-    title: 'Score de qualidade',
+    title: 'Score por critério do playbook',
     description:
-      'Cada call recebe uma nota baseada nos critérios do seu playbook: descoberta, apresentação de valor, condução e fechamento.',
+      'Cada call é avaliada nos critérios que você treina: descoberta, apresentação de valor, condução de objeções e fechamento. O playbook vira métrica.',
   },
   {
     icon: 'message-square-warning',
-    title: 'Objeções e sinais de compra',
+    title: 'Mapa de objeções do time',
     description:
-      'O Sonar destaca as objeções que aparecem com mais frequência e os sinais de interesse do cliente, para você ajustar o discurso com base em dado, não em achismo.',
+      'As objeções mais recorrentes aparecem ranqueadas, com os trechos em que surgiram. Você treina a resposta certa para o que o mercado realmente está dizendo.',
   },
   {
     icon: 'graduation-cap',
-    title: 'Coaching acionável',
+    title: 'Coaching 1:1 com evidência',
     description:
-      'Feedback objetivo por vendedor, com trechos exatos da ligação. O 1:1 deixa de ser opinião e passa a ser evidência.',
+      'Feedback objetivo por vendedor, apontando o momento exato da ligação. O 1:1 sai da opinião e vira plano de desenvolvimento com prioridade clara.',
   },
   {
     icon: 'bar-chart-3',
-    title: 'Visão do time',
+    title: 'Dados de evolução do time',
     description:
-      'Compare desempenho entre vendedores, acompanhe a evolução do score ao longo do tempo e identifique quem precisa de apoio antes do fim do mês.',
+      'Acompanhe o score por vendedor e por período para medir se o treinamento está funcionando — e identifique quem precisa de apoio antes do fim do mês.',
   },
 ];

@@ -71,3 +71,36 @@ deixaram o lockup da Sonar visualmente pequeno demais nas duas áreas.
 **Regra:** ao definir altura de logo em `h-*`, validar visualmente contra a altura do container
 (`h-16` no header) antes de fixar o valor na especificação — não assumir que o primeiro valor
 escolhido está correto.
+
+---
+
+## 2026-08-14 — Logo ainda pequena: o gargalo era a altura da barra, não a classe
+
+**Erro:** `h-10` no header e `h-9` no footer continuaram pequenos. No header, o limite real não era
+a classe da imagem e sim a barra `h-16` (64px): qualquer valor acima de `h-12` estouraria o
+container. Aumentar só o `h-*` da `<img>` não resolvia.
+
+**Solução adotada:** barra do header de `h-16` para `h-20` e logo para `h-14` nos dois lugares
+(`Header.astro` e `Footer.astro`). Como o header é `sticky`, o `scroll-mt-20` das seções com
+âncora (`Features`, `HowItWorks`, `Audiences`, `Pricing`, `Faq`) ficou menor que a nova altura da
+barra e subiu para `scroll-mt-24`.
+
+**Regra:** ao aumentar a logo do header, ajustar em conjunto (1) a altura da barra, (2) a classe
+`h-*` da imagem e (3) o `scroll-mt-*` das seções ancoradas — o offset de âncora precisa ser maior
+que a altura do header sticky.
+
+---
+
+## 2026-08-14 — Tagline do reposicionamento não bate com a do lockup
+
+**Contexto:** o site foi reposicionado para **Sales Enablement** (treinamento + dados). A tagline
+`SALES CALL INTELLIGENCE`, porém, está desenhada como `<text>` dentro de `sonar-lockup.svg` e
+`sonar-lockup-dark.svg`, e `SITE.tagline` em `src/data/site.ts` apenas espelha esse valor.
+
+**Solução adotada:** copy das seções e metadados (`SITE.title`, `SITE.description`) reposicionados,
+mas os SVGs e `SITE.tagline` mantidos como estão — a regra do `CLAUDE.md` proíbe redesenhar a
+logo. A divergência foi levantada com o usuário para decisão de marca.
+
+**Regra:** mudança de posicionamento não autoriza editar arquivo de marca. Se a tagline do lockup
+precisar mudar, isso é uma alteração de identidade visual: os cinco SVGs em `/logos` e
+`public/logos/` são atualizados juntos, e só então `SITE.tagline` acompanha.
