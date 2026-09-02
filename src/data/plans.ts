@@ -19,7 +19,7 @@ export const PLANS: Plan[] = [
     name: 'Essencial',
     description:
       'Para quem está começando a estruturar o treinamento do time comercial.',
-    price: 'R$ 59',
+    price: 'R$ 69',
     priceSuffix: '/mês por usuário',
     highlighted: false,
     ctaLabel: 'Começar agora',

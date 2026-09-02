@@ -15,8 +15,8 @@ export const CONTACT_EMAIL = 'vitorvieira@gumeinteligencia.com.br';
 export const COMPANY = 'Gume Inteligência';
 
 export const APP_URLS = {
-  login: 'https://sonar.gume.app/login',
-  register: 'https://sonar.gume.app/register',
+  login: 'https://app.sonarbiz.com.br/login',
+  register: '',
   comercial: 'https://wa.me/5544991214486',
  } as const;
 
