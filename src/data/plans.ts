@@ -16,6 +16,19 @@ export interface Plan {
 
 export const PLANS: Plan[] = [
   {
+    name: 'Free',
+    description: 'Para quem está começando a usar o Sonar.',
+    price: 'Gratuito',
+    priceSuffix: '',
+    highlighted: false,
+    ctaLabel: 'Começar agora',
+    features: [
+      '5 ligações/mês',
+      '2 usuários operacionais',
+      '1 gestores'
+    ],
+  },
+  {
     name: 'Essencial',
     description:
       'Para quem está começando a estruturar o treinamento do time comercial.',
@@ -24,11 +37,11 @@ export const PLANS: Plan[] = [
     highlighted: false,
     ctaLabel: 'Começar agora',
     features: [
-      'Transcrição automática das ligações',
-      'Leitura da conversa por IA',
-      'Score da ligação por critério do playbook',
-      'Biblioteca de calls pesquisável',
-      'Até 3 usuários',
+      '30 ligações/mês',
+      '3 usuários operacionais',
+      '2 gestores',
+      'Integração com centrais de VoIP',
+      'Sales Enablement',
     ],
   },
   {
@@ -39,11 +52,13 @@ export const PLANS: Plan[] = [
     highlighted: true,
     ctaLabel: 'Criar conta',
     features: [
-      'Tudo do plano Essencial',
-      'Mapa de objeções e sinais de compra',
-      'Painel de desempenho por vendedor',
-      'Dados de evolução do treinamento por período',
-      'Usuários ilimitados',
+      '100 ligações/mês',
+      '6 usuários operacionais',
+      '3 gestores',
+      'Integração com centrais de VoIP',
+      'Integração com CRM',
+      'Sales Enablement',
+      'Aba Estratégia'
     ],
   },
   {
@@ -54,11 +69,7 @@ export const PLANS: Plan[] = [
     highlighted: false,
     ctaLabel: 'Falar com o time',
     features: [
-      'Tudo do plano Pro',
-      'Critérios de score do seu próprio playbook',
-      'Gestão de acessos por equipe',
-      'Suporte prioritário',
-      'Onboarding e desenho do programa de enablement',
+      'Tudo do plano Pro de forma ilimitada',
     ],
   },
 ];
