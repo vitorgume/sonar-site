@@ -9,15 +9,14 @@ export const SITE = {
   ogImage: '/og-image.png',
 } as const;
 
-/** ⚠️ CONFIRMAR: e-mail de contato comercial exibido no rodapé. */
-export const CONTACT_EMAIL = 'vitorvieira@gumeinteligencia.com.br';
+export const CONTACT_EMAIL = 'renatovieira@gumeinteligencia.com.br';
 
 export const COMPANY = 'Gume Inteligência';
 
 export const APP_URLS = {
   login: 'https://app.sonarbiz.com.br/login',
-  register: '',
-  comercial: 'https://wa.me/5544991214486',
+  register: 'https://app.sonarbiz.com.br/register',
+  comercial: 'https://wa.me/5544991494350',
  } as const;
 
 export const NAV_LINKS = [
