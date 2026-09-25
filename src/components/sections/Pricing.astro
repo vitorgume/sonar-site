@@ -1,9 +1,8 @@
 ---
-import { Check } from 'lucide-astro';
+import { MessageCircle } from 'lucide-astro';
 import Container from '../ui/Container.astro';
 import SectionTitle from '../ui/SectionTitle.astro';
 import Button from '../ui/Button.astro';
-import { PLANS } from '../../data/plans';
 import { APP_URLS } from '../../data/site';
 ---
 
@@ -11,64 +10,30 @@ import { APP_URLS } from '../../data/site';
   <Container>
     <SectionTitle
       eyebrow="Planos"
-      title="Comece pequeno, escale quando o time crescer"
-      description="Sem contrato de fidelidade e sem custo de implantação. Você cria a conta e já começa a treinar com dado."
+      title="Um plano sob medida para o seu time"
+      description="Cada operação comercial tem um volume de ligações e um número de usuários diferente. Fale com o time da Sonar e monte o plano certo para o seu momento."
     />
 
-    <div class="mt-12 grid items-start gap-6 lg:grid-cols-3">
-      {
-        PLANS.map((plan) => (
-          <div
-            class={`relative flex h-full flex-col rounded-xl bg-white p-6 shadow-sm ${
-              plan.highlighted
-                ? 'border-2 border-teal-600 lg:-mt-4 lg:pb-10'
-                : 'border border-slate-200'
-            }`}
-          >
-            {plan.highlighted && (
-              <span class="absolute -top-3 left-6 inline-flex items-center rounded-full bg-teal-600 px-3 py-1 text-xs font-medium text-white">
-                Mais escolhido
-              </span>
-            )}
+    <div class="mx-auto mt-12 max-w-2xl rounded-xl border border-slate-200 bg-white p-8 text-center shadow-sm md:p-12">
+      <p class="text-sm font-semibold uppercase tracking-wide text-teal-600">
+        Preço sob consulta
+      </p>
+      <p class="mt-4 text-base font-medium text-slate-500 md:text-lg">
+        Sem tabela fechada: o valor depende de volume de ligações, número de
+        usuários e integrações necessárias. Fale com a gente no WhatsApp e
+        receba uma proposta em poucos minutos.
+      </p>
 
-            <h3 class="text-lg font-semibold text-slate-900">{plan.name}</h3>
-            <p class="mt-2 text-sm font-medium leading-relaxed text-slate-500">
-              {plan.description}
-            </p>
-
-            <p class="mt-6 flex items-baseline gap-1">
-              <span class="text-3xl font-semibold tracking-tight text-slate-900">
-                {plan.price}
-              </span>
-              {plan.priceSuffix && (
-                <span class="text-sm font-medium text-slate-500">
-                  {plan.priceSuffix}
-                </span>
-              )}
-            </p>
-
-            <ul class="mt-6 flex-1 space-y-3">
-              {plan.features.map((feature) => (
-                <li class="flex items-start gap-3 text-sm font-medium text-slate-700">
-                  <Check
-                    class="mt-0.5 h-4 w-4 shrink-0 text-teal-600"
-                    aria-hidden="true"
-                  />
-                  {feature}
-                </li>
-              ))}
-            </ul>
-
-            <Button
-              href={APP_URLS.comercial}
-              variant={plan.highlighted ? 'primary' : 'secondary'}
-              class="mt-8 w-full"
-            >
-              {plan.ctaLabel}
-            </Button>
-          </div>
-        ))
-      }
+      <Button
+        href={APP_URLS.comercial}
+        variant="primary"
+        size="lg"
+        external
+        class="mt-8"
+      >
+        <MessageCircle class="h-5 w-5" aria-hidden="true" />
+        Falar no WhatsApp
+      </Button>
     </div>
 
     <p class="mt-8 text-center text-sm font-medium text-slate-500">
