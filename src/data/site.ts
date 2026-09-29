@@ -15,9 +15,8 @@ export const COMPANY = 'Gume Inteligência';
 
 export const APP_URLS = {
   login: 'https://app.sonarbiz.com.br/login',
-  register: 'https://app.sonarbiz.com.br/register',
   comercial: 'https://wa.me/5544991494350',
- } as const;
+} as const;
 
 export const NAV_LINKS = [
   { label: 'Recursos', href: '#recursos' },
