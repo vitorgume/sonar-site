@@ -91,6 +91,35 @@ que a altura do header sticky.
 
 ---
 
+## 2026-11-16 — Âncoras `#secao` quebram fora da home
+
+**Contexto:** ao criar as páginas `/privacidade`, `/termos` e `/exclusao-de-dados`, o `Header` e o
+`Footer` (que reutilizam `NAV_LINKS`) passaram a aparecer em subpáginas. Com `href="#recursos"` o
+clique só rolaria a página atual e nunca voltaria à home.
+
+**Solução adotada:** `NAV_LINKS` em `src/data/site.ts` e o link de FAQ do `Footer` agora usam
+`/#recursos`, `/#faq` etc. O filtro do footer passou a comparar com `'/#faq'`.
+
+**Regra:** componentes compartilhados entre páginas (Header/Footer) devem usar âncoras absolutas
+(`/#secao`), nunca relativas. Ao mudar o formato de `NAV_LINKS`, conferir o filtro do `Footer`.
+
+---
+
+## 2026-11-16 — Textos legais com valores não confirmados
+
+**Contexto:** a Política de Privacidade, os Termos e a página de exclusão citam prazos (resposta a
+titulares, retenção pós-contrato) e papéis (controlador/operador) que dependem de validação jurídica.
+
+**Solução adotada:** prazos isolados em `src/data/legal.ts` (`REQUEST_DEADLINE_DAYS`,
+`POST_CONTRACT_RETENTION_DAYS`, `LEGAL_LAST_UPDATED`) com aviso `⚠️ CONFIRMAR`. O texto das páginas
+vive em `legal.ts` como dados tipados; `LegalDocument.astro` só renderiza.
+
+**Regra:** ao alterar o conteúdo legal, atualizar `LEGAL_LAST_UPDATED`. Nunca afirmar no texto algo
+sobre o produto (região de armazenamento, treinamento de modelos, criptografia) que não tenha sido
+confirmado pelo time.
+
+---
+
 ## 2026-08-14 — Tagline do reposicionamento não bate com a do lockup
 
 **Contexto:** o site foi reposicionado para **Sales Enablement** (treinamento + dados). A tagline

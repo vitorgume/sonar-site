@@ -7,14 +7,15 @@ import {
   NAV_LINKS,
   SITE,
 } from '../../data/site';
+import { LEGAL_DOCS } from '../../data/legal';
 
 const year = new Date().getFullYear();
-const productLinks = NAV_LINKS.filter((link) => link.href !== '#faq');
+const productLinks = NAV_LINKS.filter((link) => link.href !== '/#faq');
 ---
 
 <footer class="bg-slate-900">
   <Container class="py-16">
-    <div class="grid gap-10 md:grid-cols-2 lg:grid-cols-4">
+    <div class="grid gap-10 md:grid-cols-2 lg:grid-cols-5">
       <div class="lg:col-span-2">
         <img
           src="/logos/sonar-lockup-dark.svg"
@@ -46,7 +47,7 @@ const productLinks = NAV_LINKS.filter((link) => link.href !== '#faq');
           }
           <li>
             <a
-              href="#faq"
+              href="/#faq"
               class="rounded text-sm font-medium text-slate-300 transition-colors hover:text-teal-400"
             >
               Perguntas frequentes
@@ -84,6 +85,24 @@ const productLinks = NAV_LINKS.filter((link) => link.href !== '#faq');
               {CONTACT_EMAIL}
             </a>
           </li>
+        </ul>
+      </div>
+
+      <div>
+        <h2 class="text-sm font-semibold text-white">Legal</h2>
+        <ul class="mt-4 space-y-3">
+          {
+            LEGAL_DOCS.map((doc) => (
+              <li>
+                <a
+                  href={doc.path}
+                  class="rounded text-sm font-medium text-slate-300 transition-colors hover:text-teal-400"
+                >
+                  {doc.shortTitle}
+                </a>
+              </li>
+            ))
+          }
         </ul>
       </div>
     </div>

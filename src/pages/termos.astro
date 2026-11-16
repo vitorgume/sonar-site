@@ -1,0 +1,18 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Header from '../components/sections/Header.astro';
+import LegalDocument from '../components/sections/LegalDocument.astro';
+import Footer from '../components/sections/Footer.astro';
+import { TERMS_OF_USE } from '../data/legal';
+---
+
+<BaseLayout
+  title={`${TERMS_OF_USE.title} — Sonar`}
+  description={TERMS_OF_USE.description}
+>
+  <Header />
+  <main id="conteudo">
+    <LegalDocument doc={TERMS_OF_USE} />
+  </main>
+  <Footer />
+</BaseLayout>

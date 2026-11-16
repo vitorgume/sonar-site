@@ -1,0 +1,18 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Header from '../components/sections/Header.astro';
+import LegalDocument from '../components/sections/LegalDocument.astro';
+import Footer from '../components/sections/Footer.astro';
+import { DATA_DELETION } from '../data/legal';
+---
+
+<BaseLayout
+  title={`${DATA_DELETION.title} — Sonar`}
+  description={DATA_DELETION.description}
+>
+  <Header />
+  <main id="conteudo">
+    <LegalDocument doc={DATA_DELETION} />
+  </main>
+  <Footer />
+</BaseLayout>

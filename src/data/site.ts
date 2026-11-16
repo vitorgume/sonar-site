@@ -19,9 +19,9 @@ export const APP_URLS = {
 } as const;
 
 export const NAV_LINKS = [
-  { label: 'Recursos', href: '#recursos' },
-  { label: 'Como funciona', href: '#como-funciona' },
-  { label: 'Para quem', href: '#para-quem' },
-  { label: 'Planos', href: '#planos' },
-  { label: 'FAQ', href: '#faq' },
+  { label: 'Recursos', href: '/#recursos' },
+  { label: 'Como funciona', href: '/#como-funciona' },
+  { label: 'Para quem', href: '/#para-quem' },
+  { label: 'Planos', href: '/#planos' },
+  { label: 'FAQ', href: '/#faq' },
 ] as const;

@@ -1,0 +1,183 @@
+---
+import { ArrowRight, Mail } from 'lucide-astro';
+import Container from '../ui/Container.astro';
+import {
+  LEGAL_CONTACT_EMAIL,
+  LEGAL_DOCS,
+  LEGAL_LAST_UPDATED,
+  type LegalDocument,
+} from '../../data/legal';
+
+interface Props {
+  doc: LegalDocument;
+}
+
+const { doc } = Astro.props;
+
+const otherDocs = LEGAL_DOCS.filter((item) => item.path !== doc.path);
+
+const linkClasses =
+  'rounded font-semibold text-teal-700 underline underline-offset-2 transition-colors hover:text-teal-600 focus-visible:ring-2 focus-visible:ring-teal-500';
+const buttonClasses =
+  'inline-flex items-center justify-center gap-2 bg-teal-600 hover:bg-teal-700 text-white px-4 py-2 rounded-lg font-medium transition-colors shadow-sm focus-visible:ring-2 focus-visible:ring-teal-500 focus-visible:ring-offset-2';
+---
+
+<section class="bg-white">
+  <Container class="py-16 md:py-24">
+    <div class="max-w-3xl">
+      <p class="text-sm font-semibold uppercase tracking-wide text-teal-600">
+        Legal
+      </p>
+      <h1
+        class="mt-3 text-4xl font-semibold tracking-tight text-slate-900 md:text-5xl"
+      >
+        {doc.title}
+      </h1>
+      <p class="mt-4 text-base font-medium text-slate-500 md:text-lg">
+        {doc.intro}
+      </p>
+      <p class="mt-4 text-sm font-medium text-slate-500">
+        Última atualização: {LEGAL_LAST_UPDATED}
+      </p>
+    </div>
+
+    <div class="mt-12 grid grid-cols-[minmax(0,1fr)] gap-10 lg:grid-cols-[16rem_minmax(0,1fr)] lg:gap-16">
+      <aside>
+        <details
+          class="rounded-xl border border-slate-200 bg-slate-50 p-4 lg:hidden"
+        >
+          <summary
+            class="cursor-pointer text-sm font-semibold text-slate-900"
+          >
+            Neste documento
+          </summary>
+          <ol class="mt-3 space-y-2">
+            {
+              doc.sections.map((section, index) => (
+                <li>
+                  <a
+                    href={`#${section.id}`}
+                    class="rounded text-sm font-medium text-slate-600 transition-colors hover:text-teal-700"
+                  >
+                    {index + 1}. {section.heading}
+                  </a>
+                </li>
+              ))
+            }
+          </ol>
+        </details>
+
+        <nav aria-label="Neste documento" class="sticky top-28 hidden lg:block">
+          <p class="text-sm font-semibold text-slate-900">Neste documento</p>
+          <ol class="mt-4 space-y-2 border-l border-slate-200">
+            {
+              doc.sections.map((section, index) => (
+                <li>
+                  <a
+                    href={`#${section.id}`}
+                    class="-ml-px block rounded border-l border-transparent py-0.5 pl-4 text-sm font-medium text-slate-600 transition-colors hover:border-teal-600 hover:text-teal-700"
+                  >
+                    {index + 1}. {section.heading}
+                  </a>
+                </li>
+              ))
+            }
+          </ol>
+        </nav>
+      </aside>
+
+      <div class="max-w-3xl space-y-12">
+        {
+          doc.sections.map((section, index) => (
+            <section id={section.id} class="scroll-mt-28" aria-labelledby={`${section.id}-titulo`}>
+              <h2
+                id={`${section.id}-titulo`}
+                class="text-2xl font-semibold tracking-tight text-slate-900"
+              >
+                {index + 1}. {section.heading}
+              </h2>
+              <div class="mt-4 space-y-4">
+                {section.blocks.map((block) => {
+                  switch (block.type) {
+                    case 'p':
+                      return (
+                        <p class="text-base font-medium leading-relaxed text-slate-600">
+                          {block.text}
+                        </p>
+                      );
+                    case 'ul':
+                    case 'ol': {
+                      const Tag = block.type;
+                      const listStyle =
+                        block.type === 'ul' ? 'list-disc' : 'list-decimal';
+                      return (
+                        <Tag
+                          class={`${listStyle} space-y-2 pl-6 text-base font-medium leading-relaxed text-slate-600 marker:text-teal-600`}
+                        >
+                          {block.items.map((item) => (
+                            <li>
+                              {typeof item === 'string' ? (
+                                item
+                              ) : (
+                                <Fragment>
+                                  <strong class="font-semibold text-slate-900">
+                                    {item.term}:
+                                  </strong>{' '}
+                                  {item.text}
+                                </Fragment>
+                              )}
+                            </li>
+                          ))}
+                        </Tag>
+                      );
+                    }
+                    case 'note':
+                      return (
+                        <p class="rounded-xl bg-sky-100 p-4 text-sm font-medium leading-relaxed text-sky-800">
+                          {block.text}
+                        </p>
+                      );
+                    case 'contact':
+                      return (
+                        <a
+                          href={`mailto:${LEGAL_CONTACT_EMAIL}?subject=${encodeURIComponent(block.subject)}`}
+                          class={buttonClasses}
+                        >
+                          <Mail class="h-4 w-4" aria-hidden="true" />
+                          {block.label}
+                        </a>
+                      );
+                    case 'link':
+                      return (
+                        <a href={block.href} class={`inline-flex items-center gap-1.5 ${linkClasses}`}>
+                          {block.label}
+                          <ArrowRight class="h-4 w-4" aria-hidden="true" />
+                        </a>
+                      );
+                  }
+                })}
+              </div>
+            </section>
+          ))
+        }
+
+        <aside class="rounded-xl border border-slate-200 bg-slate-50 p-6">
+          <h2 class="text-sm font-semibold uppercase tracking-wide text-teal-600">
+            Outros documentos
+          </h2>
+          <ul class="mt-3 space-y-2">
+            {
+              otherDocs.map((item) => (
+                <li>
+                  <a href={item.path} class={linkClasses}>
+                    {item.shortTitle}
+                  </a>
+                </li>
+              ))
+            }
+          </ul>
+        </aside>
+      </div>
+    </div>
+  </Container>
+</section>
