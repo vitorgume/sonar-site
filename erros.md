@@ -105,6 +105,22 @@ clique só rolaria a página atual e nunca voltaria à home.
 
 ---
 
+## 2026-11-17 — Domínio e fornecedores errados nas páginas legais
+
+**Erro:** o domínio do site ficou como `sonar.gume.app` (`astro.config.mjs`, `SITE.url`,
+`robots.txt`), então o canonical e o sitemap saíam com o domínio errado; o domínio real é
+`sonarbiz.com.br`. Além disso, a política dizia que "tudo fica na AWS" e só citava categorias de
+fornecedores, sem refletir a infraestrutura real (Railway, Render, Cloudflare, AWS) nem as
+integrações (OpenAI, AssemblyAI, Recall.ai, Google/Microsoft, PostHog, Meta).
+
+**Solução adotada:** domínio trocado nos três arquivos; seções de armazenamento, compartilhamento,
+dados tratados, cookies e exclusão reescritas em `src/data/legal.ts` com os nomes reais.
+
+**Regra:** na primeira versão de texto legal/técnico, perguntar ao usuário a stack real em vez de
+supor. Ao mudar o domínio, trocar os três lugares juntos (`astro.config.mjs`, `site.ts`, `robots.txt`).
+
+---
+
 ## 2026-11-16 — Textos legais com valores não confirmados
 
 **Contexto:** a Política de Privacidade, os Termos e a página de exclusão citam prazos (resposta a

@@ -5,7 +5,7 @@ import sitemap from '@astrojs/sitemap';
 
 // https://astro.build/config
 export default defineConfig({
-  site: 'https://sonar.gume.app',
+  site: 'https://sonarbiz.com.br',
   output: 'static',
   integrations: [tailwind({ applyBaseStyles: false }), sitemap()],
   compressHTML: true,

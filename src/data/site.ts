@@ -1,7 +1,7 @@
 export const SITE = {
   name: 'Sonar',
   tagline: 'Sales Call Intelligence',
-  url: 'https://sonar.gume.app',
+  url: 'https://sonarbiz.com.br',
   locale: 'pt-BR',
   title: 'Sonar — Sales Enablement: treine seu time comercial com dados',
   description:

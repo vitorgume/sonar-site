@@ -8,7 +8,7 @@ export const LEGAL_CONTACT_EMAIL = 'vitorvieira@gumeinteligencia.com.br';
  * Revisar com o jurídico/DPO antes de publicar. Cada valor abaixo é citado no texto
  * das páginas /privacidade, /termos e /exclusao-de-dados.
  */
-export const LEGAL_LAST_UPDATED = '16 de novembro de 2026';
+export const LEGAL_LAST_UPDATED = '17 de novembro de 2026';
 
 /** Prazo para responder pedidos de titulares e concluir exclusões (LGPD art. 19, II: até 15 dias). */
 export const REQUEST_DEADLINE_DAYS = 15;
@@ -98,7 +98,11 @@ export const PRIVACY_POLICY: LegalDocument = {
             },
             {
               term: 'Ligações e reuniões',
-              text: 'gravações de áudio, transcrições, data, duração, participantes e números de telefone envolvidos.',
+              text: 'gravações de áudio (inclusive de reuniões online gravadas por um bot que entra na chamada), transcrições, data, duração, participantes e números de telefone envolvidos.',
+            },
+            {
+              term: 'Agenda conectada',
+              text: 'quando o usuário conecta o Google Agenda ou o Microsoft Outlook, tratamos os eventos da agenda: título, horário e participantes, usados para identificar e vincular as reuniões.',
             },
             {
               term: 'Conversas de WhatsApp',
@@ -111,6 +115,10 @@ export const PRIVACY_POLICY: LegalDocument = {
             {
               term: 'Dados técnicos',
               text: 'endereço IP, tipo de navegador e registros de acesso (logs), usados para segurança e funcionamento da plataforma.',
+            },
+            {
+              term: 'Métricas de uso do aplicativo',
+              text: 'páginas acessadas, funcionalidades utilizadas e informações do dispositivo, coletadas por uma ferramenta de análise de produto (PostHog) para entender e melhorar o uso da plataforma.',
             },
             {
               term: 'Contato comercial',
@@ -132,11 +140,12 @@ export const PRIVACY_POLICY: LegalDocument = {
           type: 'ul',
           items: [
             'Transcrever e analisar ligações, reuniões e conversas de WhatsApp dos times comerciais.',
+            'Identificar e vincular reuniões a partir da agenda conectada pelo usuário.',
             'Gerar notas por critério do playbook, resumos e sugestões de coaching para os gestores e vendedores da empresa cliente.',
             'Autenticar usuários, controlar acessos e administrar a conta.',
             'Prestar suporte, responder contatos e enviar comunicados sobre o serviço.',
             'Manter a segurança da plataforma, prevenir fraudes e cumprir obrigações legais.',
-            'Manter a estabilidade e o bom funcionamento do serviço.',
+            'Medir o uso do aplicativo para manter a estabilidade e melhorar o serviço.',
           ],
         },
       ],
@@ -161,7 +170,32 @@ export const PRIVACY_POLICY: LegalDocument = {
       blocks: [
         {
           type: 'p',
-          text: 'Os dados ficam armazenados em infraestrutura da Amazon Web Services (AWS). Cada empresa acessa apenas os próprios dados, com login individual por usuário, controle de acesso por perfil e separação dos dados entre empresas clientes. Os áudios e as transcrições ficam restritos à conta da empresa.',
+          text: 'Os dados ficam distribuídos entre os seguintes provedores de infraestrutura:',
+        },
+        {
+          type: 'ul',
+          items: [
+            {
+              term: 'Railway',
+              text: 'banco de dados, onde ficam os dados de cadastro, transcrições, conversas e análises.',
+            },
+            {
+              term: 'Amazon Web Services (AWS)',
+              text: 'armazenamento dos arquivos de áudio e filas de processamento.',
+            },
+            {
+              term: 'Render',
+              text: 'hospedagem da API e dos serviços da aplicação.',
+            },
+            {
+              term: 'Cloudflare',
+              text: 'proteção e entrega do tráfego entre o seu navegador e a plataforma.',
+            },
+          ],
+        },
+        {
+          type: 'p',
+          text: 'Cada empresa acessa apenas os próprios dados, com login individual por usuário, controle de acesso por perfil e separação dos dados entre empresas clientes. Os áudios e as transcrições ficam restritos à conta da empresa.',
         },
       ],
     },
@@ -181,16 +215,28 @@ export const PRIVACY_POLICY: LegalDocument = {
               text: 'para a integração com o WhatsApp, que permite receber e enviar as mensagens e os dados das conversas conectadas pela empresa cliente.',
             },
             {
-              term: 'Provedores de inteligência artificial',
-              text: 'para analisar o conteúdo e gerar notas, resumos e coaching.',
+              term: 'OpenAI',
+              text: 'inteligência artificial para analisar o conteúdo e gerar notas, resumos e coaching.',
             },
             {
-              term: 'Provedores de transcrição',
-              text: 'para converter o áudio de ligações e reuniões em texto.',
+              term: 'AssemblyAI',
+              text: 'transcrição do áudio de ligações e reuniões em texto.',
             },
             {
-              term: 'Amazon Web Services (AWS)',
-              text: 'para hospedagem e armazenamento dos dados.',
+              term: 'Recall.ai',
+              text: 'bot que entra nas reuniões online para gravá-las e obter o áudio.',
+            },
+            {
+              term: 'Google e Microsoft',
+              text: 'acesso à agenda (Google Agenda e Microsoft Outlook), quando o usuário a conecta.',
+            },
+            {
+              term: 'PostHog',
+              text: 'análise de uso do aplicativo.',
+            },
+            {
+              term: 'Railway, Render, Cloudflare e Amazon Web Services (AWS)',
+              text: 'hospedagem, armazenamento e entrega da plataforma, conforme descrito na seção anterior.',
             },
             {
               term: 'Autoridades públicas',
@@ -223,7 +269,7 @@ export const PRIVACY_POLICY: LegalDocument = {
           items: [
             {
               term: 'Conteúdo dos clientes',
-              text: `(áudios, transcrições, conversas e análises) enquanto o contrato estiver ativo. Após o encerramento, por até ${POST_CONTRACT_RETENTION_DAYS} dias, para exportação ou reativação, e depois são eliminados.`,
+              text: `(áudios, transcrições, conversas, eventos de agenda e análises) enquanto o contrato estiver ativo. Após o encerramento, por até ${POST_CONTRACT_RETENTION_DAYS} dias, para exportação ou reativação, e depois são eliminados.`,
             },
             {
               term: 'Dados de conta',
@@ -298,11 +344,19 @@ export const PRIVACY_POLICY: LegalDocument = {
     },
     {
       id: 'cookies',
-      heading: 'Cookies neste site',
+      heading: 'Cookies e métricas de uso',
       blocks: [
         {
           type: 'p',
-          text: 'No momento, este site institucional não utiliza cookies de publicidade nem de rastreamento de terceiros. Se isso mudar, atualizaremos esta Política antes da alteração entrar em vigor.',
+          text: 'Este site institucional não utiliza cookies de publicidade nem de rastreamento de terceiros.',
+        },
+        {
+          type: 'p',
+          text: 'Já o aplicativo do Sonar utiliza o PostHog para medir o uso da plataforma (páginas acessadas, funcionalidades utilizadas e dados técnicos do dispositivo), o que pode envolver cookies ou armazenamento local no seu navegador. Esses dados servem para manter e melhorar o serviço, e não para publicidade.',
+        },
+        {
+          type: 'p',
+          text: 'Se isso mudar, atualizaremos esta Política antes da alteração entrar em vigor.',
         },
       ],
     },
@@ -472,7 +526,7 @@ export const TERMS_OF_USE: LegalDocument = {
             },
             {
               term: 'Suboperadores',
-              text: 'O Sonar pode contratar suboperadores (como provedores de hospedagem, inteligência artificial e transcrição, e a Meta para a integração com o WhatsApp), que estão listados na Política de Privacidade.',
+              text: 'O Sonar pode contratar suboperadores, como provedores de hospedagem, inteligência artificial, transcrição, gravação de reuniões, agenda e análise de uso, além da Meta para a integração com o WhatsApp. A lista com os nomes e a função de cada um está na Política de Privacidade.',
             },
             {
               term: 'Direitos dos titulares',
@@ -675,11 +729,32 @@ export const DATA_DELETION: LegalDocument = {
       blocks: [
         {
           type: 'p',
-          text: 'Eliminamos os dados pessoais indicados no pedido dos sistemas do Sonar, incluindo áudios, transcrições, conversas e análises associadas. As cópias de segurança são eliminadas no ciclo regular de rotação.',
+          text: 'Eliminamos os dados pessoais indicados no pedido dos sistemas do Sonar, incluindo áudios, transcrições, conversas, eventos de agenda e análises associadas. As cópias de segurança são eliminadas no ciclo regular de rotação.',
         },
         {
           type: 'p',
           text: 'Podemos manter apenas os dados que a lei exige ou permite guardar, como registros de acesso (Marco Civil da Internet), dados necessários para cumprir obrigações fiscais e contratuais ou para o exercício regular de direitos em processos. Nesses casos, informamos quais dados foram mantidos e por quê.',
+        },
+      ],
+    },
+    {
+      id: 'parar-whatsapp',
+      heading: 'Como parar o envio de conversas do WhatsApp',
+      blocks: [
+        {
+          type: 'p',
+          text: 'Você não precisa esperar a conclusão de um pedido de exclusão para interromper o recebimento de novas conversas. Há duas formas, que podem ser combinadas:',
+        },
+        {
+          type: 'ol',
+          items: [
+            'Dentro do Sonar, desligue ou exclua o número de WhatsApp conectado, nas configurações da integração. A partir daí, o Sonar deixa de receber novas mensagens desse número.',
+            'Na Meta, remova o aplicativo Sonar nas configurações de integrações da sua empresa. Isso revoga o acesso do Sonar à sua conta do WhatsApp.',
+          ],
+        },
+        {
+          type: 'p',
+          text: 'Interromper o envio não apaga as conversas já recebidas. Para excluí-las, faça o pedido descrito acima.',
         },
       ],
     },
